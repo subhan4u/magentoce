@@ -1,0 +1,29 @@
+<form action="<?php echo $block->getUrl('multiselect/manage/save', ['_secure' => $this->getRequest()->isSecure()]) ?>" enctype="multipart/form-data" method="post"  data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <div class="field required">
+            <label class="label"><?php echo __('Select Category') ?>:</label>
+            <div data-bind="scope: 'customCategory'">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            </div>
+            <script type="text/x-magento-init">
+                {
+                    "*": {
+                        "Magento_Ui/js/core/app": {
+                            "components": {
+                                "customCategory": {
+                                    "component": "Magento_Ui/js/form/element/ui-select",
+                                    "template" : "Javid_CustomModel/uicategory",
+                                    "filterOptions": true,
+                                    "levelsVisibility": "1",
+                                    "multiple": true,
+                                    "showCheckbox": true,
+                                    "options": <?php echo $block->getCategoriesTree()?>
+                                }
+                            }
+                        }
+                    }
+                }
+            </script>
+        </div>
+    </fieldset>
+</form>
