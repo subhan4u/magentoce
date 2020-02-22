@@ -1,0 +1,42 @@
+<?php
+/** $var Magento\Framework\View\Element\Template $block */
+/** $var Javid\CustomModel\ViewModel\CmsPageList $viewModel */
+$viewModel = $block->getData('viewModel');
+?>
+<div data-bind="scope: 'mycompname'">
+    <h2 data-bind="text: title"></h2>
+    <p data-bind="text: mypara"></p>
+    <!--ko foreach: {data: getItems(), as: 'pagetil'} -->
+    <p data-bind="text: pagetil.title"></p>
+    <!--/ko-->
+    <ul>
+        <!--ko foreach: {data: getItems(), as: 'page'} -->
+            <li><a data-bind="attr:{href: page.url}, text: page.title"></a></li>
+        <!--/ko-->
+    </ul>
+</div>
+<div data-bind="scope: 'mycompname2'">
+    <h2 data-bind="text: title"></h2>
+    <p data-bind="text: mypara"></p>
+</div>
+<script type="text/x-magento-init">
+{
+    "*":{
+        "Magento_Ui/js/core/app":{
+            "components":{
+                "mycompname":{
+                    "component": "Javid_CustomModel/js/comp",
+                    "title": "This is my first component's Title",
+                    "mypara": "This is my paragraph",
+                    "items": <?= $viewModel->getItemsJson(); ?>
+                },
+                "mycompname2":{
+                    "component": "Javid_CustomModel/js/comp",
+                    "title": "Second Tile from another component",
+                    "mypara": "Second paragraph"
+                }
+            }
+        }
+    }
+}
+</script>
