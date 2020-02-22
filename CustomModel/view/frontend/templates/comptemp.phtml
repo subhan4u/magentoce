@@ -6,9 +6,6 @@ $viewModel = $block->getData('viewModel');
 <div data-bind="scope: 'mycompname'">
     <h2 data-bind="text: title"></h2>
     <p data-bind="text: mypara"></p>
-    <!--ko foreach: {data: getItems(), as: 'pagetil'} -->
-    <p data-bind="text: pagetil.title"></p>
-    <!--/ko-->
     <ul>
         <!--ko foreach: {data: getItems(), as: 'page'} -->
             <li><a data-bind="attr:{href: page.url}, text: page.title"></a></li>
