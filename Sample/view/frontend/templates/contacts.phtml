@@ -1,0 +1,16 @@
+<?php
+$this->addContks(10);
+$blkContacts = $this->getData('contacts');
+foreach($blkContacts as $cont) {
+    echo $cont . "<br />";
+}
+
+echo "Now adding 20 more <br />";
+
+$this->addContks(20);
+$blkContacts = $this->getData('contacts');
+foreach($blkContacts as $cont) {
+    echo $cont . "<br />";
+}
+
+echo "Now contacts is " . count($this->getData('contacts'));

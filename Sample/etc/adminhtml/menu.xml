@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+<menu>
+    <add id="javid_sample" title="Javid Sample" parent="Javid_DependentFields::group" module="Javid_Sample" dependsOnModule="Javid_DependentFields" resource="Javid_Sample::view" sortOrder="20" action="samplecont/hello"/>
+</menu>
+</config>   
