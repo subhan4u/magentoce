@@ -6,8 +6,8 @@ use Magento\Framework\Model\AbstractModel;
 class Contacts extends AbstractModel 
 {
 
-    protected function __construct()
+    protected function _construct()
     {
-        $this->_init("Javid\Sample\Model\ResourceModel\Contacts::class");
+        $this->_init(\Javid\Sample\Model\ResourceModel\Contacts::class);
     }
 }
