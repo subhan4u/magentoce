@@ -29,6 +29,21 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'comment' => 'Comment'
             ]);
         }
+        else  if (version_compare($context->getVersion(), '2.1.0', '<')) {
+
+            /**
+             * Add full text index to our table department
+             */
+
+            $tableName = $setup->getTable('pfay_contacts');
+            $fullTextIntex = array('name','email'); // Column with fulltext index, you can put multiple fields
+            $setup->getConnection()->addIndex(
+                $tableName,
+                $setup->getIdxName($tableName, $fullTextIntex, \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT),
+                $fullTextIntex,
+                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+            );
+        }
         $setup->endSetup();
     }
 }
