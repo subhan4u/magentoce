@@ -1,4 +1,5 @@
 <?php
+/*
 $this->addContks(10);
 $blkContacts = $this->getData('contacts');
 foreach($blkContacts as $cont) {
@@ -14,3 +15,23 @@ foreach($blkContacts as $cont) {
 }
 
 echo "Now contacts is " . count($this->getData('contacts'));
+*/
+$contcts =  $this->contactsBlock();
+?>
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Email</td>
+        </tr>
+    </thead>
+<?php foreach($contcts as $contact) {
+    ?>
+     <tr>
+         <td><?php echo $contact->getName(); ?></td>
+         <td><?php echo $contact->getEmail(); ?></td>
+     </tr>
+<?php   
+}
+?>
+</table>

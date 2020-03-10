@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="javids_event">
+        <observer name="javids_event_observers" instance="Javid\Sample\Observer\Javidsobserver" />
+    </event>
+</config>
