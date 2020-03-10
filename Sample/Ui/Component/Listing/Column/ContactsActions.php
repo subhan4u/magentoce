@@ -50,7 +50,7 @@ class ContactsActions extends Column
             foreach ($dataSource['data']['items'] as &$item) {
                 $item[$this->getData('name')]['edit'] = [
                     'href' => $this->urlBuilder->getUrl(
-                        'contacts/test/edit',
+                        'samplecont/hello/edit',
                         ['id' => $item['pfay_contacts_id']]
                     ),
                     'label' => __('Edit'),
@@ -58,7 +58,7 @@ class ContactsActions extends Column
                 ];
                 $item[$this->getData('name')]['delete'] = [
                     'href' => $this->urlBuilder->getUrl(
-                        'contacts/test/delete',
+                        'samplecont/hello/delete',
                         ['id' => $item['pfay_contacts_id']]
                     ),
                     'label' => __('Delete'),

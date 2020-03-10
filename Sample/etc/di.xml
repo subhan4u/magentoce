@@ -27,7 +27,7 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="contacts_test_listing_data_source" xsi:type="string">Javid\Sample\Model\ResourceModel\Contacts\Collection</item>
+                <item name="samplecontid_hello_listing_data_source" xsi:type="string">Javid\Sample\Model\ResourceModel\Contacts\Collection</item>
             </argument>
         </arguments>
     </type>

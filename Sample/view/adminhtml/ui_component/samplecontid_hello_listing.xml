@@ -5,11 +5,11 @@
     <argument name="data" xsi:type="array">
         <!-- define where to find the date source -->
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">contacts_test_listing.contacts_test_listing_data_source</item>
-            <item name="deps" xsi:type="string">contacts_test_listing.contacts_test_listing_data_source</item>
+            <item name="provider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing_data_source</item>
+            <item name="deps" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing_data_source</item>
         </item>
         <!-- define where to find the columns -->
-        <item name="spinner" xsi:type="string">contacts_test_columns</item>
+        <item name="spinner" xsi:type="string">samplecontid_hello_columns</item>
 
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
@@ -27,7 +27,7 @@
             <!-- unique name for the grid -->
             <argument name="class" xsi:type="string">ContactsGridDataProvider</argument>
             <!-- name of the data source same as in argument/js_config/provider -->
-            <argument name="name" xsi:type="string">contacts_test_listing_data_source</argument>
+            <argument name="name" xsi:type="string">samplecontid_hello_listing_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">pfay_contacts_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
@@ -54,10 +54,10 @@
         <filterSearch name="fulltext">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="provider" xsi:type="string">contacts_test_listing.contacts_test_listing_data_source</item>
-                    <item name="chipsProvider" xsi:type="string">contacts_test_listing.contacts_test_listing.listing_top.listing_filters_chips</item>
+                    <item name="provider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing_data_source</item>
+                    <item name="chipsProvider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing.listing_top.listing_filters_chips</item>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">contacts_test_listing.contacts_test_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.search</item>
                     </item>
                 </item>
@@ -69,7 +69,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="columnsData" xsi:type="array">
-                        <item name="provider" xsi:type="string">contacts_test_listing.contacts_test_listing.contacts_test_columns</item>
+                        <item name="provider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing.samplecontid_hello_columns</item>
                     </item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
                     <item name="displayArea" xsi:type="string">dataGridActions</item>
@@ -85,7 +85,7 @@
                     <item name="storageConfig" xsi:type="array">
                         <item name="saveUrl" xsi:type="url" path="*/*/save"/>
                         <item name="deleteUrl" xsi:type="url" path="*/*/delete"/>
-                        <item name="namespace" xsi:type="string">contact_test_listing</item>
+                        <item name="namespace" xsi:type="string">samplecontid_hello_listing</item>
                     </item>
                 </item>
             </argument>
@@ -95,11 +95,11 @@
         <item name="config" xsi:type="array">
             <item name="storageConfig" xsi:type="array">
                 <!-- we put here the path to the bookmarks element -->
-                <item name="provider" xsi:type="string">contacts_test_listing.contacts_test_listing.listing_top.bookmarks</item>
+                <item name="provider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing.listing_top.bookmarks</item>
                 <item name="namespace" xsi:type="string">current.paging</item>
             </item>
-            <!-- we put here the path to the element pfay_contact_ids of contacts_test_columns  element -->
-            <item name="selectProvider" xsi:type="string">contacts_test_listing.contacts_test_listing.contacts_test_columns.pfay_contacts_id</item>
+            <!-- we put here the path to the element pfay_contact_ids of samplecontid_hello_columns  element -->
+            <item name="selectProvider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing.samplecontid_hello_columns.pfay_contacts_id</item>
             <item name="displayArea" xsi:type="string">bottom</item>
         </item>
     </argument>
@@ -108,13 +108,13 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">contacts_test_listing.contacts_test_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">curren.filters</item>
                     </item>
                     <item name="childDefaults" xsi:type="array">
-                        <item name="provider" xsi:type="string">contacts_test_listing.contacts_test_listing.listing_top.listing_filters</item>
+                        <item name="provider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing.listing_top.listing_filters</item>
                         <item name="imports" xsi:type="array">
-                            <item name="visible" xsi:type="string">contacts_test_listing.contacts_test_listing.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
+                            <item name="visible" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
                         </item>
                     </item>
                 </item>
@@ -123,8 +123,8 @@
     <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <!-- we put here the path to the element pfay_contact_ids of contacts_test_columns  element -->
-                    <item name="selectProvider" xsi:type="string">contacts_test_listing.contacts_test_listing.contacts_test_columns.ids</item>
+                    <!-- we put here the path to the element pfay_contact_ids of samplecontid_hello_columns  element -->
+                    <item name="selectProvider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing.samplecontid_hello_columns.ids</item>
                     <item name="displayArea" xsi:type="string">bottom</item>
                     <item name="indexField" xsi:type="string">pfay_contacts_id</item>
                 </item>
@@ -145,19 +145,19 @@
         </massaction>
 
     <!-- define the columns of my grid -->
-    <columns name="contacts_test_columns">
+    <columns name="samplecontid_hello_columns">
 
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <!-- Bookmarks behaviour -->
                 <item name="storageConfig" xsi:type="array">
-                    <item name="provider" xsi:type="string">contacts_test_listing.contacts_test_listing.listing_top.bookmarks</item>
+                    <item name="provider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing.listing_top.bookmarks</item>
                     <item name="namespace" xsi:type="string">current</item>
                 </item>
                 <item name="childDefaults" xsi:type="array">
                     <item name="controlVisibility" xsi:type="boolean">true</item>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">contacts_test_listing.contacts_test_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">samplecontid_hello_listing.samplecontid_hello_listing.listing_top.bookmarks</item>
                         <item name="root" xsi:type="string">columns.${ $.index }</item>
                         <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
                     </item>
