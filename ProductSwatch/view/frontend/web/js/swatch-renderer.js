@@ -4,7 +4,7 @@ define([
     'magento-swatch.renderer'
   ], function($){
   
-    $.widget('anshu.SwatchRenderer', $.mage.SwatchRenderer, { 
+    $.widget('javid.SwatchRenderer', $.mage.SwatchRenderer, { 
   
           /**
            * Event for swatch options
@@ -72,5 +72,5 @@ define([
   
       });
   
-    return $.anshu.SwatchRenderer;
+    return $.javid.SwatchRenderer;
   });
