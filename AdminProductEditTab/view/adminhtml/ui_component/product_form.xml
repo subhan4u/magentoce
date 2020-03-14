@@ -21,6 +21,17 @@
             <htmlContent name="html_content">
                 <argument name="block" xsi:type="object">Javid\AdminProductEditTab\Block\Adminhtml\Product\Edit\Tab\CustomData</argument>
             </htmlContent>
+            <field name="pfayname">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Name</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="source" xsi:type="string">pfaycontact</item>
+                        <item name="dataScope" xsi:type="string">name</item>
+                    </item>
+                </argument>
+            </field>
         </container>
     </fieldset>
 </form>
