@@ -1,0 +1,22 @@
+<?php
+
+$block->getCatalogSession()->setMyName('Javid Abdul');
+echo $block->getCatalogSession()->getMyName();
+
+$block->getCheckoutSession()->setTestData('Hello World');
+echo $block->getCheckoutSession()->getTestData() . '<br />'; // output: Hello World
+
+echo $customerId = $block->getCustomerSession()->getCustomerId() . " --- ";
+if($block->getCustomerSession()->isLoggedIn()) {
+    $customerId = $block->getCustomerSession()->getCustomerId();
+    $customerData = $block->getCustomerSession()->getCustomer();
+    echo $customerData->getFirstname() . " --- " . $customerData->getLastname() . " --- " . $customerData->getEmail();
+   // print_r($customerData->getData());
+}
+echo "<br />=====<br />";
+
+// get checkout session data
+echo $block->getCheckoutSession()->getQuoteId();
+//print_r($block->getCheckoutSession()->getQuote()->getData());
+
+?>
