@@ -8,9 +8,9 @@ class DataProvider extends AbstractDataProvider {
 
     /**
      *
-     * @param [type] $name
-     * @param [type] $primaryFieldName
-     * @param [type] $requestFieldName
+     * @param int $name
+     * @param int $primaryFieldName
+     * @param int $requestFieldName
      * @param CollectionFactory $collection
      * @param array $meta
      * @param array $data
@@ -25,7 +25,7 @@ class DataProvider extends AbstractDataProvider {
     )
     {
         $this->collection = $collection->create();
-        parent::__construct($name,$primaryFieldName,$requestFieldName,$meta,$data);
+        parent::__construct($name,$primaryFieldName,$requestFieldName,$collection[],$meta,$data);
     } 
 
     public function getData() {
