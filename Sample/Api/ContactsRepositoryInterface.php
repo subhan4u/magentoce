@@ -8,11 +8,11 @@ use Javid\Sample\Api\Data\ContactsInterface;
 interface ContactsRepositoryInterface 
 {
     /**
-     * @param int $id
+     * @param int $pfayid
      * @return \Javid\Sample\Api\Data\ContactsInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getById($id);
+    public function getById($pfayid);
 
     /**
      * @param \Javid\Sample\Api\Data\ContactsInterface $contacts

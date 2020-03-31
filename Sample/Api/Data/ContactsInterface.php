@@ -2,7 +2,9 @@
 
 namespace Javid\Sample\Api\Data;
 
-interface ContactsInterface
+use Magento\Framework\Api\ExtensibleDataInterface;
+
+interface ContactsInterface extends ExtensibleDataInterface
 {
     /**
      * @return int
@@ -35,6 +37,6 @@ interface ContactsInterface
      * @param string $email
      * @return void
      */
-    public function setEmail();
+    public function setEmail($email);
 
 }

@@ -44,7 +44,7 @@ class ContactsRepository implements ContactsRepositoryInterface
         $contacts = $this->contactsFactory->create();
         $contacts->getResource()->load($contacts, $id);
         if (! $contacts->getId()) {
-            throw new NoSuchEntityException(__('Unable to find hamburger with ID "%1"', $id));
+            throw new NoSuchEntityException(__('Unable to find contacts with ID "%1"', $id));
         }
         return $contacts;
     }

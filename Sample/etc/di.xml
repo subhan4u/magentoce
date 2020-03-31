@@ -39,4 +39,7 @@
         </arguments>
     </virtualType>
 
+    <preference for="Javid\Sample\Api\ContactsRepositoryInterface" type="Javid\Sample\Model\ContactsRepository"/>
+    <preference for="Javid\Sample\Api\Data\ContactsInterface" type="Javid\Sample\Model\Contacts"/>
+    <preference for="Javid\Sample\Api\Data\ContactsSearchResultInterface" type="Javid\Sample\Model\ContactsSearchResult"/>
 </config>
