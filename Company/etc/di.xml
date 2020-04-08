@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Javid\Company\Api\Data\CompanyInterface" type="Javid\Company\Model\Company" />
+    <preference for="Javid\Company\Api\Data\HierarchyInterface" type="Javid\Company\Model\Hierarchy" />
+    <preference for="Javid\Company\Api\Data\CompanySearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Javid\Company\Api\CompanyRepositoryInterface" type="Javid\Company\Model\CompanyRepository" />
+    <preference for="Javid\Company\Api\CompanyHierarchyInterface" type="Javid\Company\Model\CompanyHierarchy" />
+    <preference for="Javid\Company\Api\Data\StructureInterface" type="Javid\Company\Model\Structure" />
+    <preference for="Javid\Company\Api\Data\StructureSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Javid\Company\Api\Data\TeamInterface" type="Javid\Company\Model\Team" />
+    <preference for="Javid\Company\Api\Data\TeamSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Javid\Company\Api\TeamRepositoryInterface" type="Javid\Company\Model\TeamRepository" />
+    <preference for="Javid\Company\Api\StatusServiceInterface" type="Javid\Company\Model\Config" />
+    <preference for="Javid\Company\Model\Customer\PermissionInterface" type="Javid\Company\Model\Customer\Permission" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="company_listing_data_source" xsi:type="string">Javid\Company\Model\ResourceModel\Company\Grid\Collection</item>
+                <item name="role_listing_data_source" xsi:type="string">Javid\Company\Model\ResourceModel\Role\Grid\Collection</item>
+                <item name="company_users_listing_data_source" xsi:type="string">Javid\Company\Model\ResourceModel\Users\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\SaveValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="companyId" xsi:type="string">\Javid\Company\Model\SaveValidator\CompanyId</item>
+                <item name="requiredFields" xsi:type="string">\Javid\Company\Model\SaveValidator\RequiredFields</item>
+                <item name="salesRepresentative" xsi:type="string">\Javid\Company\Model\SaveValidator\SalesRepresentative</item>
+                <item name="customerGroup" xsi:type="string">\Javid\Company\Model\SaveValidator\CustomerGroup</item>
+                <item name="companyStatus" xsi:type="string">\Javid\Company\Model\SaveValidator\CompanyStatus</item>
+                <item name="rejectedFields" xsi:type="string">\Javid\Company\Model\SaveValidator\RejectedFields</item>
+                <item name="companyAdmin" xsi:type="string">\Javid\Company\Model\SaveValidator\CompanyAdmin</item>
+                <item name="companyEmail" xsi:type="string">\Javid\Company\Model\SaveValidator\CompanyEmail</item>
+                <item name="companyAddress" xsi:type="string">\Javid\Company\Model\SaveValidator\CompanyAddress</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\SaveHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="defaultRole" xsi:type="object">\Javid\Company\Model\SaveHandler\DefaultRole</item>
+                <item name="superUser" xsi:type="object">\Javid\Company\Model\SaveHandler\SuperUser</item>
+                <item name="salesRepresentative" xsi:type="object">\Javid\Company\Model\SaveHandler\SalesRepresentative</item>
+                <item name="companyStatus" xsi:type="object">\Javid\Company\Model\SaveHandler\CompanyStatus</item>
+                <item name="customerGroup" xsi:type="object">\Javid\Company\Model\SaveHandler\CustomerGroup</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\ResourcePool">
+        <arguments>
+            <argument name="resources" xsi:type="array">
+                <item name="company_view_account" xsi:type="string">Javid_Company::view_account</item>
+                <item name="company_view_address" xsi:type="string">Javid_Company::view_address</item>
+                <item name="company_contacts" xsi:type="string">Javid_Company::contacts</item>
+                <item name="users_view" xsi:type="string">Javid_Company::users_view</item>
+                <item name="sales_payment_account" xsi:type="string">Magento_Sales::place_order</item>
+                <item name="view_orders" xsi:type="string">Magento_Sales::view_orders</item>
+                <item name="view" xsi:type="string">Javid_Company::view</item>
+                <item name="index" xsi:type="string">Javid_Company::index</item>
+                <item name="user_management" xsi:type="string">Javid_Company::user_management</item>
+                <item name="sales" xsi:type="string">Magento_Sales::all</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\Customer\CompanyAttributes">
+        <arguments>
+            <argument name="userContext" xsi:type="object">\Magento\Authorization\Model\UserContextInterface\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\Company\Structure">
+        <arguments>
+            <argument name="teamRepository" xsi:type="object">\Javid\Company\Api\TeamRepositoryInterface\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\CompanyAdminPermission">
+        <arguments>
+            <argument name="customerContext" xsi:type="object">\Magento\Authorization\Model\UserContextInterface\Proxy</argument>
+            <argument name="companyRepository" xsi:type="object">\Javid\Company\Api\CompanyRepositoryInterface\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\SaveHandler\CompanyStatus">
+        <arguments>
+            <argument name="companyRepository" xsi:type="object">\Javid\Company\Api\CompanyRepositoryInterface\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\Email\Sender">
+        <arguments>
+            <argument name="companyRepository" xsi:type="object">\Javid\Company\Api\CompanyRepositoryInterface\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\Email\CustomerData">
+        <arguments>
+            <argument name="companyRepository" xsi:type="object">\Javid\Company\Api\CompanyRepositoryInterface\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\CompanyManagement">
+        <arguments>
+            <argument name="companyRepository" xsi:type="object">\Javid\Company\Api\CompanyRepositoryInterface\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\Role\Validator">
+        <arguments>
+            <argument name="companyRepository" xsi:type="object">\Javid\Company\Api\CompanyRepositoryInterface\Proxy</argument>
+            <argument name="userRoleManagement" xsi:type="object">\Javid\Company\Model\UserRoleManagement\Proxy</argument>
+            <argument name="roleRepository" xsi:type="object">\Javid\Company\Model\RoleRepository\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\Role\Permission">
+        <arguments>
+            <argument name="userRoleManagement" xsi:type="object">\Javid\Company\Model\UserRoleManagement\Proxy</argument>
+        </arguments>
+    </type>
+    <virtualType name="CompanyGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="CompanyProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Javid\Company\Model\ResourceModel\Company\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">CompanyGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Javid\Company\Model\Create\Session\Storage" type="Magento\Framework\Session\Storage">
+        <arguments>
+            <argument name="namespace" xsi:type="string">company_create</argument>
+        </arguments>
+    </virtualType>
+    <type name="Javid\Company\Model\Create\Session">
+        <arguments>
+            <argument name="storage" xsi:type="object">Javid\Company\Model\Create\Session\Storage</argument>
+        </arguments>
+    </type>
+    <preference for="Javid\Company\Api\Data\CompanyCustomerInterface" type="Javid\Company\Model\Customer" />
+    <preference for="Javid\Company\Api\Data\CompanyOrderInterface" type="Javid\Company\Model\Order" />
+    <preference for="Javid\Company\Api\CompanyManagementInterface" type="Javid\Company\Model\CompanyManagement" />
+    <preference for="Javid\Company\Api\RoleManagementInterface" type="Javid\Company\Model\RoleManagement" />
+    <preference for="Javid\Company\Model\PermissionManagementInterface" type="Javid\Company\Model\PermissionManagement" />
+    <preference for="Magento\Sales\Model\ResourceModel\Order\CollectionFactoryInterface" type="Javid\Company\Model\ResourceModel\Order\CollectionFactory" />
+    <type name="Magento\Customer\Api\CustomerRepositoryInterface">
+        <plugin name="companyCustomerSave" type="Javid\Company\Plugin\Customer\Api\CustomerRepository\Save" />
+        <plugin name="companyCustomerDelete" type="Javid\Company\Plugin\Customer\Api\CustomerRepository\Delete" />
+        <plugin name="companyCustomerQuery" type="Javid\Company\Plugin\Customer\Api\CustomerRepository\Query" />
+    </type>
+    <type name="Magento\Framework\Model\ActionValidator\RemoveAction">
+        <plugin name="companyFrameworkModelActionValidatorRemoveAction" type="Javid\Company\Plugin\Framework\Model\ActionValidator\RemoveActionPlugin" />
+    </type>
+    <type name="Javid\Company\Model\CompanyRepository">
+        <arguments>
+            <argument name="companySaver" xsi:type="object">Javid\Company\Model\Company\Save\Proxy</argument>
+            <argument name="collectionProcessor" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\Company\Delete">
+        <arguments>
+            <argument name="teamRepository" xsi:type="object">Javid\Company\Api\TeamRepositoryInterface\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\StructureRepository">
+        <arguments>
+            <argument name="collectionProcessor" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\TeamRepository">
+        <arguments>
+            <argument name="collectionProcessor" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Wishlist\Block\Customer\Sidebar">
+        <plugin name="is_visible_wishlist_sidebar" type="Javid\Company\Plugin\Wishlist\Block\Customer\SidebarPlugin" />
+    </type>
+    <type name="Magento\Sales\Block\Reorder\Sidebar">
+        <plugin name="is_visible_reorder_sidebar" type="Javid\Company\Plugin\Sales\Block\Reorder\SidebarPlugin" />
+    </type>
+    <preference for="Javid\Company\Api\Data\RoleInterface" type="Javid\Company\Model\Role" />
+    <preference for="Javid\Company\Api\Data\PermissionInterface" type="Javid\Company\Model\Permission" />
+    <preference for="Javid\Company\Api\Data\RoleSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Javid\Company\Api\RoleRepositoryInterface" type="Javid\Company\Model\RoleRepository" />
+    <preference for="Javid\Company\Api\AclInterface" type="Javid\Company\Model\UserRoleManagement" />
+
+    <virtualType name="Javid\Company\Acl\AclResource\Config\Reader\Filesystem" type="Magento\Framework\Acl\AclResource\Config\Reader\Filesystem">
+        <arguments>
+            <argument name="fileName" xsi:type="string">company_acl.xml</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Javid\Company\Acl\Cache" type="Magento\Framework\Acl\Data\Cache">
+        <arguments>
+            <argument name="cacheTag" xsi:type="string">company_acl_resources</argument>
+            <argument name="aclBuilder" xsi:type="object">Javid\Company\Authorization\Acl\Builder</argument>
+        </arguments>
+    </virtualType>
+    <type name="Javid\Company\Model\RoleRepository">
+        <arguments>
+            <argument name="cache" xsi:type="object">Javid\Company\Acl\Cache</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\UserRoleManagement">
+        <arguments>
+            <argument name="cache" xsi:type="object">Javid\Company\Acl\Cache</argument>
+        </arguments>
+    </type>
+    <virtualType name="Javid\Company\Acl\RootResource" type="Magento\Framework\Acl\RootResource">
+        <arguments>
+            <argument name="identifier" xsi:type="string">Javid_Company::index</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Javid\Company\Acl\AclResource\Provider" type="Magento\Framework\Acl\AclResource\Provider">
+        <arguments>
+            <argument name="configReader" xsi:type="object">Javid\Company\Acl\AclResource\Config\Reader\Filesystem</argument>
+            <argument name="cacheKey" xsi:type="string">company_acl_resources_cache</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Javid\Company\Authorization\Loader\ResourceLoader" type="Magento\Framework\Acl\Loader\ResourceLoader">
+        <arguments>
+            <argument name="resourceProvider" xsi:type="object">Javid\Company\Acl\AclResource\Provider</argument>
+        </arguments>
+    </virtualType>
+    <type name="Javid\Company\Model\Authorization\Loader\Rule">
+        <arguments>
+            <argument name="rootResource" xsi:type="object">Javid\Company\Acl\RootResource</argument>
+            <argument name="resourceProvider" xsi:type="object">Javid\Company\Acl\AclResource\Provider</argument>
+        </arguments>
+    </type>
+    <virtualType name="Javid\Company\Authorization\Acl\Builder" type="Magento\Framework\Acl\Builder">
+        <arguments>
+            <argument name="resourceLoader" xsi:type="object">Javid\Company\Authorization\Loader\ResourceLoader</argument>
+            <argument name="ruleLoader" xsi:type="object">Javid\Company\Model\Authorization\Loader\Rule</argument>
+            <argument name="roleLoader" xsi:type="object">Javid\Company\Model\Authorization\Loader\Role</argument>
+        </arguments>
+    </virtualType>
+    <type name="Javid\Company\Model\Authorization\AclPolicy">
+        <arguments>
+            <argument name="aclBuilder" xsi:type="object">Javid\Company\Authorization\Acl\Builder</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\Authorization">
+        <arguments>
+            <argument name="aclPolicy" xsi:type="object">Javid\Company\Model\Authorization\AclPolicy</argument>
+            <argument name="roleLocator" xsi:type="object">Javid\Company\Model\Authorization\RoleLocator</argument>
+        </arguments>
+    </type>
+    <preference for="Javid\Company\Api\AuthorizationInterface" type="Javid\Company\Model\Authorization" />
+
+    <type name="Javid\Company\Block\Company\Role\Edit">
+        <arguments>
+            <argument name="resourceProvider" xsi:type="object">Javid\Company\Acl\AclResource\Provider</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\PermissionManagement">
+        <arguments>
+            <argument name="resourceProvider" xsi:type="object">Javid\Company\Acl\AclResource\Provider</argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Controller\Role\EditPost">
+        <arguments>
+            <argument name="resourceProvider" xsi:type="object">Javid\Company\Acl\AclResource\Provider</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Sales\Api\OrderManagementInterface">
+        <plugin name="orderManagementCompany" type="Javid\Company\Plugin\Sales\Api\OrderManagementInterfacePlugin" />
+    </type>
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="orderRepositoryCompany" type="Javid\Company\Plugin\Sales\Api\OrderRepositoryInterfacePlugin" />
+    </type>
+    <type name="Magento\ScalableOms\Console\Command\SplitSales">
+        <arguments>
+            <argument name="tables" xsi:type="array">
+                <item name="company_order_entity" xsi:type="string">company_order_entity</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Javid\Company\Model\ResourceModel\Order">
+        <arguments>
+            <argument name="connectionName" xsi:type="string">sales</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Webapi\Controller\Rest\ParamsOverrider">
+        <arguments>
+            <argument name="paramOverriders" xsi:type="array">
+                <item name="%company_id%" xsi:type="object">Javid\Company\Model\Webapi\ParamOverriderCompanyId</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Javid\Company\Api\CompanyUserManagerInterface" type="Javid\Company\Model\CompanyUserManager" />
+</config>

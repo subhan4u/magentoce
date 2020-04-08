@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Javid\Company\Model\SaveValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="companyId" xsi:type="string">\Javid\Company\Model\SaveValidator\CompanyId</item>
+                <item name="requiredFields" xsi:type="string">\Javid\Company\Model\SaveValidator\RequiredFields</item>
+                <item name="salesRepresentative" xsi:type="string">\Javid\Company\Model\SaveValidator\SalesRepresentative</item>
+                <item name="customerGroup" xsi:type="string">\Javid\Company\Model\SaveValidator\CustomerGroup</item>
+                <item name="companyStatus" xsi:type="string">\Javid\Company\Model\SaveValidator\CompanyStatus</item>
+                <item name="rejectedFields" xsi:type="string">\Javid\Company\Model\SaveValidator\RejectedFields</item>
+                <item name="companyAdmin" xsi:type="string">\Javid\Company\Model\SaveValidator\CompanyAdmin</item>
+                <item name="companyEmail" xsi:type="string">\Javid\Company\Model\SaveValidator\CompanyEmail</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
